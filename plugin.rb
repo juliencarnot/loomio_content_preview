@@ -5,13 +5,13 @@ module Plugins
         plugin.enabled = true
 
         plugin.use_component :preview_button, outlet: [
+          :before_poll_form_textarea,
           :before_comment_form_textarea,
-          :before_proposal_form_textarea,
           :before_discussion_form_textarea
         ]
         plugin.use_component :preview_pane, outlet: [
+          :after_poll_form_textarea,
           :after_comment_form_textarea,
-          :after_proposal_form_textarea,
           :after_discussion_form_textarea
         ]
 
