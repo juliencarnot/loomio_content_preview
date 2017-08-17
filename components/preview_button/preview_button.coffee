@@ -5,7 +5,11 @@ angular.module('loomioApp').directive 'previewButton', ->
   controller: ($scope) ->
 
     selectors = ->
-      '.preview-pane, .lmo-textarea-wrapper'
+      [
+        '.preview-pane',
+        '.lmo-textarea-wrapper textarea',
+        '.lmo-textarea-wrapper .lmo-md-actions'
+      ].join(',')
 
     $scope.toggle = ->
       angular.element(document.querySelectorAll(selectors())).toggleClass('lmo-hidden')

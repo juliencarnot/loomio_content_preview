@@ -1,18 +1,14 @@
-.preview-pane.lmo-hidden
-  .preview-pane__without-content{ng-if: "!model.hasDescription()"}
-    %span{translate: "loomio_content_preview.preview_pane.no_content"}
-
+.preview-pane.lmo-hidden{class: "preview-pane--{{type}}"}
+  .lmo-hint-text.preview-pane--no-content{ng-if: "!model.hasDescription()", translate: "loomio_content_preview.preview_pane.no_content"}
   // for comment previews
-  .preview-pane__with-content{ng-if: "model.hasDescription()"}
-    .preview-pane__with-content--comment{ng-if: "type == 'comment'"}
-      .thread-item__header.lmo-flex.lmo-flex__center
-        %user_avatar.lmo-margin-right{user: "model.author()", size: "small"}
-        %h3.new-comment__in-reply-to
-          %strong> {{ model.authorName() }}
-          %span{ng-if: "model.parentId", translate: "new_comment_item.in_reply_to", translate-value-recipient: "{{model.parentAuthorName}}"}
-        .sr-only{ng-if: "!model.parentId", id: "event-{{event.id}}", translate: "new_comment_item.aria_label", translate-value-author: "{{model.authorName()}}"}
-      .thread-item__body.new-comment__body.lmo-markdown-wrapper{marked: "model.cookedBody()"}
+  %div{ng-if: "model.hasDescription()"}
+    .thread-item__header.lmo-flex.lmo-flex__center{ng-if: "type == 'comment'"}
+      %user_avatar.lmo-margin-right{user: "model.author()", size: "small"}
+      %h3.new-comment__in-reply-to
+        %strong> {{ model.authorName() }}
+        %span{ng-if: "model.parentId", translate: "new_comment_item.in_reply_to", translate-value-recipient: "{{model.parentAuthorName}}"}
+      .sr-only{ng-if: "!model.parentId", id: "event-{{event.id}}", translate: "new_comment_item.aria_label", translate-value-author: "{{model.authorName()}}"}
+    .thread-item__body.new-comment__body.lmo-markdown-wrapper{ng-if: "type == 'comment'", marked: "model.cookedBody()"}
 
     // for context previews
-    %div{ng-if: "type != 'comment'", class: "preview-pane__with-content--{{model.constructor.singular}}"}
-      .lmo-markdown-wrapper{marked: "model.cookedDescription()"}
+    .lmo-markdown-wrapper{ng-if: "type != 'comment'", marked: "model.cookedDescription()"}

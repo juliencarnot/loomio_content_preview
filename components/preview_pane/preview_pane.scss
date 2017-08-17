@@ -1,20 +1,14 @@
 .preview-pane {
   min-height: 100px;
-  border: 1px solid $border-color;
-  border-radius: 0 4px 4px 4px;
-  padding: 24px 10px;
-  margin: -6px 0 10px 0;
 }
 
-.preview-pane__without-content {
-  font-style: italic;
-  margin-top: 10px;
+.preview-pane--no-content {
   text-align: center;
 }
 
-.lmo-textarea-wrapper > md-input-container {
-  padding: 24px 10px;
-  margin: -6px 0 20px 0;
+.preview-pane {
+  padding: 8px;
+  margin-bottom: 8px;
   border: 1px solid $border-color;
-  border-radius: 0 4px 4px 4px;
+  @include roundedCorners;
 }
