@@ -6,5 +6,5 @@ angular.module('loomioApp').directive 'previewPane', ->
   controller: ($scope) ->
     $scope.model = $scope.comment || $scope.poll || $scope.discussion
     $scope.type  = $scope.model.constructor.singular
-    $scope.$on 'commentFormInit', (event, comment) ->
+    $scope.$on 'reinitializeForm', (event, comment) ->
       $scope.model = comment if $scope.type == 'comment'
