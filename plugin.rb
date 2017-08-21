@@ -5,15 +5,11 @@ module Plugins
         plugin.enabled = true
 
         plugin.use_component :preview_button, outlet: [
-          :before_comment_form_textarea,
-          :before_proposal_form_textarea,
-          :before_discussion_form_textarea
+          :before_comment_submit,
+          :before_poll_submit,
+          :before_discussion_submit
         ]
-        plugin.use_component :preview_pane, outlet: [
-          :after_comment_form_textarea,
-          :after_proposal_form_textarea,
-          :after_discussion_form_textarea
-        ]
+        plugin.use_component :preview_pane, outlet: :before_lmo_textarea
 
         plugin.use_translations 'config/locales', :loomio_content_preview
 

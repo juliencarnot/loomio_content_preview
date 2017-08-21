@@ -2,17 +2,13 @@
   min-height: 100px;
 }
 
-.preview-pane__with-content {
-  padding: 10px;
-  min-height: 100px;
-  margin-bottom: 10px;
-  background: $card-background-color;
-  border: 1px solid $border-color;
-  border-radius: 4px;
+.preview-pane--no-content {
+  text-align: center;
 }
 
-.preview-pane__without-content {
-  font-style: italic;
-  margin-top: 10px;
-  text-align: center;
+.preview-pane {
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid $border-color;
+  @include roundedCorners;
 }
