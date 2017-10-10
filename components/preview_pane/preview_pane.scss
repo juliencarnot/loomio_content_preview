@@ -12,3 +12,7 @@
   border: 1px solid $border-color;
   @include roundedCorners;
 }
+
+.preview-pane .new-comment__body {
+  margin-left: 44px;
+}
