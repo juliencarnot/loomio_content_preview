@@ -1,5 +1,5 @@
 describe 'content preview', ->
-  page = require '../../../../angular/test/protractor/helpers/page_helper.coffee'
+  page = require '../../../../../angular/test/protractor/helpers/page_helper.coffee'
 
   describe 'previewing a comment', ->
     it 'can preview', ->
